@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #4B4376, #AE445A);
+    font-family: 'Poppins';
+}
+
+.wrapper .container {
+    width: 30%;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 30px;
+    background-color: #EEEEEE;
+    opacity: 90%;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.wrapper .input {
+    font-family: 'Poppins';
+    padding: 10px;
+    border: 1px solid #C7E9FF;
+    background-color: #F5F5F5;
+}
+
+.wrapper .search {
+    background-color: #ffffff;
+    width: 30%;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.search-bar {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.todo-heading {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-add {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.task-input {
+    border-radius: 8px;
+    width: 65%;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+h1 {
+    padding-right: 15px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.add-btn {
+    background-image: linear-gradient(#1DE9B6, #81C784);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 1px solid #97BE5A;
+    width: 25%;
+}
+
+button {
+    width: 25%;
+}
+
+li span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 70%;
+    overflow: hidden;
+    padding: 7px 0;
+}
+
+li span:hover {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.trash {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: rgb(121, 27, 27);
+}
+
+@media (max-width:1200px) {
+
+    .wrapper .container,
+    .wrapper .search {
+        width: 40%;
+    }
+}
+
+@media (max-width:1024px) {
+
+    .wrapper .container,
+    .wrapper .search {
+        width: 45%;
+    }
+}
+
+@media (max-width:768px) {
+
+    .wrapper .container,
+    .wrapper .search {
+        width: 55%;
+    }
+}
+
+@media (max-width:630px) {
+
+    .wrapper .container,
+    .wrapper .search {
+        width: 60%;
+    }
+}
+
+@media (max-width:550px) {
+
+    .wrapper .container,
+    .wrapper .search {
+        width: 70%;
+    }
+}
