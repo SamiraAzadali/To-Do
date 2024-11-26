@@ -12,7 +12,7 @@ let ul = document.createElement('ul');
 toDoList.appendChild(ul);
 
 tasks.forEach(task => {
-    addTask(task);
+    addTask(task.text, false, task.isDone);
 });
 
 // ---------------------------Add Button click--------------------------------------
@@ -40,26 +40,31 @@ addButton.addEventListener('click', () => {
         existingAlert.remove();
     }
 
-    addTask(taskInputValue, true);
+    addTask(taskInputValue, true, false);
 
     taskInput.value = '';
 });
 
 // -------------------------Adding Task---------------------------------------------
 
-function addTask(task, save) {
+function addTask(taskText, save, isDone = false) {
     // To DO Task List
     let taskList = document.createElement('li');
     ul.appendChild(taskList);
 
     // To DO Task List Items
     let taskListItem = document.createElement('span');
-    taskListItem.textContent = task;
+    taskListItem.textContent = taskText;
     taskList.appendChild(taskListItem);
 
+    if(isDone){
+        taskListItem.classList.add('line-through');
+    }
+    
     // Line Through Done Tasks
     taskList.addEventListener('click', () => {
         taskListItem.classList.toggle('line-through');
+        updateTaskStatus(taskText, taskListItem.classList.contains('line-through'));
     });
 
     // Delete Button
@@ -73,17 +78,23 @@ function addTask(task, save) {
     deleteButton.addEventListener('click', () => {
         ul.removeChild(taskList);
 
-        tasks = tasks.filter(t => t !== task);
+        tasks = tasks.filter(t => t.text !== taskText);
         localStorage.setItem('tasks', JSON.stringify(tasks));
     });
 
     if (save) {
-        tasks.push(task);
+        tasks.push({text: taskText, isDone});
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
 };
 
+function updateTaskStatus(taskText, isDone){
+    tasks = tasks.map(task =>
+        task.text === taskText ? { ...task, isDone} : task
+        );
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 // ---------------------------------Search Bar--------------------------------------
 
 let search = document.querySelector('.search');
